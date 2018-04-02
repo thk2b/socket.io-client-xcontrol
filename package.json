@@ -1,0 +1,39 @@
+{
+  "name": "socket.io-client-xcontrol",
+  "version": "0.0.0",
+  "description": "A Controller for the socket.io client",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "babel src --out-dir lib",
+    "test": "babel-tape-runner 'src/**/test/*.test.js' | faucet",
+    "test:ugly": "babel-tape-runner 'src/**/test/*.test.js'",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thk2b/socket.io-client-xcontrol.git"
+  },
+  "keywords": [
+    "socket.io-client",
+    "xcontrol"
+  ],
+  "author": "thk2b",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thk2b/socket.io-client-xcontrol/issues"
+  },
+  "homepage": "https://github.com/thk2b/socket.io-client-xcontrol#readme",
+  "peerDependencies": {
+    "xcontrol": "^0.1.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-tape-runner": "^2.0.1",
+    "faucet": "0.0.1",
+    "sinon": "^4.4.8",
+    "tape": "^4.9.0",
+    "xcontrol": "^0.1.4"
+  }
+}
