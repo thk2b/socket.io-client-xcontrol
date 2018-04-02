@@ -7,7 +7,12 @@ export default (Controller, methods = []) => {
 
             methods.forEach(
                 methodName => {
-                    // verify that we do have such a method
+                    if(Controller.prototype[methodName] === undefined){
+                        throw new Error(
+                            `Error in SocketIoController:\n
+                            ${Controller.name} does not have a ${methodName} method`
+                        )
+                    }
                     const eventName = `@@${Controller.name}__${methodName}`
                     const handler = args => {
                         Controller.prototype[methodName].call(this, ...args)

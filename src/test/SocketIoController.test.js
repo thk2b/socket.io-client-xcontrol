@@ -36,16 +36,11 @@ class TestController extends HashMap {
     constructor(initialState){
         super(initialState)
         this._nextId = 0
-    }
-    delete(...args){
-        super.delete(...args)
-        console.log('delete', args)
-    }
+    }ß
 }
 
-const TestSocketIoController = SocketIoController( TestController, ['set', 'delete'] )
-
 test('SocketIoController', main => {
+    const TestSocketIoController = SocketIoController( TestController, ['set', 'delete'] )
     main.test('constructor', t => {
         const s = new FakeSocket()
         const c = new TestSocketIoController(undefined, s)
@@ -76,5 +71,13 @@ test('SocketIoController', main => {
         c.removeSocketListeners()
         t.deepEqual(s._events, {}, 'should have remove the event handlers from the socket')
         t.end()
+    })
+    main.test('listening for an undefined method', t => {
+        try {
+            new ( SocketIoController( TestController, ['wrong'] ))()
+            t.fail('should have thrown')
+        } catch(e) {
+            t.end()
+        }
     })
 })
