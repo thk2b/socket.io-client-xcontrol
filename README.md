@@ -1,3 +1,5 @@
+`npm install --save socket.io-client-xcontrol`
+
 # socket.io-client-xcontrol
 A Controller for the socket.io client
 
